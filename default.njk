@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+
+    <style>
+        #para{
+            background-color: #dbeaee;
+            font-family: "Arial";
+        }
+
+        #gallery{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            gap: 10px;
+
+        }
+
+        .heading{
+            font-size: 40px;
+			color: navy;
+        }
+
+        .male{
+            color: blue;
+        }
+
+        .female{
+            color: pink;
+        }
+
+        .other{
+            color: #16642a;
+        }
+	</style>
+
+</head>
+
+
+
+<body>
+    <div id="para">
+    <span class="heading"> {{ title }}</span>
+    <br/><br/>
+
+        <span id="gallery">
+            {% for character in data.results %}
+            <table>
+                <tr>
+                    <td>
+                    <a href="/character/{{character.id}}"><img src="{{ character.image }}" /></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <a href="/character/{{character.id}}">{{ character.name }} </a>
+                    </td>
+                </tr>
+                <tr>
+                    {% if character.gender == "Male"%}
+                    <td class="male">{{ character.gender }}</td>
+                    {% elif character.gender == "Female"%}
+                    <td class="female">{{ character.gender }}</td>
+                    {% else %}
+                    <td class="other">{{ character.gender }}</td>
+                    {% endif %}
+                </tr>
+            </table>
+            <br/><br/>
+            {% endfor %}
+        </span>
+    </div>
+</body>
+</html>

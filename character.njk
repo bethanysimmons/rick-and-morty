@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        #para{
+            background-color: #ff000010;
+            text-align: center;
+            font-family: "Arial";
+        }
+
+        .heading{
+            font-size: 40px;
+			color: navy;
+        }
+
+        .body{
+            color: #16642a;
+            font-family: "Arial";
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <p id="para">
+        <span class="body">Rendering Character {{ id }}:</span>
+        <br/><br/>
+        <span class="heading">{{ character.name }}</span>
+        <br/><br/>
+        <img src="{{ character.image }}" />
+        <br/><br/>
+        <span class="body">
+        Species: {{ character.species }}
+        <br/>
+        Gender: {{ character.gender }}
+        <br/>
+        Status: {{ character.status }}
+        <br/>
+        Origin: {{ character.origin.name }}
+        </span>
+    </p>
+
+</body>
+</html>
+
+
+
